@@ -1,0 +1,724 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Bristol Regional Food Network AI Service",
+        "description": "AI-powered features for the digital marketplace",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/api/v1/grade-image": {
+            "post": {
+                "summary": "Grade Image",
+                "operationId": "grade_image_api_v1_grade_image_post",
+                "parameters": [
+                    {
+                        "name": "x-user-id",
+                        "in": "header",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "title": "X-User-Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_grade_image_api_v1_grade_image_post"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GradeImageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/grad-cam/{request_id}": {
+            "get": {
+                "summary": "Get Grad Cam",
+                "operationId": "get_grad_cam_api_v1_grad_cam__request_id__get",
+                "parameters": [
+                    {
+                        "name": "request_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Request Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GradCamResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/recommendations/{instacart_user_id}": {
+            "get": {
+                "summary": "Get Recommendations",
+                "operationId": "get_recommendations_api_v1_recommendations__instacart_user_id__get",
+                "parameters": [
+                    {
+                        "name": "instacart_user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Instacart User Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RecommendationsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/forecast": {
+            "post": {
+                "summary": "Forecast",
+                "operationId": "forecast_api_v1_forecast_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ForecastRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForecastResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/admin/upload-model": {
+            "post": {
+                "summary": "Upload Model",
+                "operationId": "upload_model_api_v1_admin_upload_model_post",
+                "parameters": [
+                    {
+                        "name": "x-admin-key",
+                        "in": "header",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "title": "X-Admin-Key"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_upload_model_api_v1_admin_upload_model_post"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UploadModelResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "summary": "Health Check",
+                "operationId": "health_check_health_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "summary": "Root",
+                "operationId": "root__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Body_grade_image_api_v1_grade_image_post": {
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "format": "binary",
+                        "title": "File"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "file"
+                ],
+                "title": "Body_grade_image_api_v1_grade_image_post"
+            },
+            "Body_upload_model_api_v1_admin_upload_model_post": {
+                "properties": {
+                    "task": {
+                        "type": "string",
+                        "title": "Task"
+                    },
+                    "version": {
+                        "type": "string",
+                        "title": "Version"
+                    },
+                    "file": {
+                        "type": "string",
+                        "format": "binary",
+                        "title": "File"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "task",
+                    "version",
+                    "file"
+                ],
+                "title": "Body_upload_model_api_v1_admin_upload_model_post"
+            },
+            "EnsembleWeights": {
+                "properties": {
+                    "resnet50": {
+                        "type": "number",
+                        "title": "Resnet50"
+                    },
+                    "mobilenetv2": {
+                        "type": "number",
+                        "title": "Mobilenetv2"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "resnet50",
+                    "mobilenetv2"
+                ],
+                "title": "EnsembleWeights"
+            },
+            "ForecastRequest": {
+                "properties": {
+                    "instacart_product_id": {
+                        "type": "integer",
+                        "title": "Instacart Product Id"
+                    },
+                    "daily_counts": {
+                        "items": {
+                            "type": "integer"
+                        },
+                        "type": "array",
+                        "title": "Daily Counts"
+                    },
+                    "window_end_date": {
+                        "type": "string",
+                        "title": "Window End Date"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "instacart_product_id",
+                    "daily_counts",
+                    "window_end_date"
+                ],
+                "title": "ForecastRequest"
+            },
+            "ForecastResponse": {
+                "properties": {
+                    "product_id": {
+                        "type": "integer",
+                        "title": "Product Id"
+                    },
+                    "forecast": {
+                        "$ref": "#/components/schemas/ForecastWindow"
+                    },
+                    "shap": {
+                        "$ref": "#/components/schemas/ShapAttribution"
+                    },
+                    "input_window_days": {
+                        "type": "integer",
+                        "const": 90,
+                        "title": "Input Window Days"
+                    },
+                    "output_horizon_days": {
+                        "type": "integer",
+                        "const": 7,
+                        "title": "Output Horizon Days"
+                    },
+                    "model_version": {
+                        "type": "string",
+                        "title": "Model Version"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "product_id",
+                    "forecast",
+                    "shap",
+                    "input_window_days",
+                    "output_horizon_days",
+                    "model_version"
+                ],
+                "title": "ForecastResponse"
+            },
+            "ForecastWindow": {
+                "properties": {
+                    "dates": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array",
+                        "title": "Dates"
+                    },
+                    "predicted_counts": {
+                        "items": {
+                            "type": "integer"
+                        },
+                        "type": "array",
+                        "title": "Predicted Counts"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "dates",
+                    "predicted_counts"
+                ],
+                "title": "ForecastWindow"
+            },
+            "GradCamResponse": {
+                "properties": {
+                    "heatmap_base64": {
+                        "type": "string",
+                        "title": "Heatmap Base64"
+                    },
+                    "predicted_class": {
+                        "type": "string",
+                        "title": "Predicted Class"
+                    },
+                    "explanation": {
+                        "type": "string",
+                        "title": "Explanation"
+                    },
+                    "model_version": {
+                        "type": "string",
+                        "title": "Model Version"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "heatmap_base64",
+                    "predicted_class",
+                    "explanation",
+                    "model_version"
+                ],
+                "title": "GradCamResponse"
+            },
+            "GradeImageResponse": {
+                "properties": {
+                    "predicted_class": {
+                        "type": "string",
+                        "title": "Predicted Class"
+                    },
+                    "produce_type": {
+                        "type": "string",
+                        "title": "Produce Type"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "title": "Quality"
+                    },
+                    "confidence": {
+                        "type": "number",
+                        "title": "Confidence"
+                    },
+                    "colour_pct": {
+                        "type": "number",
+                        "title": "Colour Pct"
+                    },
+                    "size_pct": {
+                        "type": "number",
+                        "title": "Size Pct"
+                    },
+                    "ripeness_pct": {
+                        "type": "number",
+                        "title": "Ripeness Pct"
+                    },
+                    "grade": {
+                        "type": "string",
+                        "enum": [
+                            "A",
+                            "B",
+                            "C"
+                        ],
+                        "title": "Grade"
+                    },
+                    "ensemble_weights": {
+                        "$ref": "#/components/schemas/EnsembleWeights"
+                    },
+                    "recommended_action": {
+                        "type": "string",
+                        "title": "Recommended Action"
+                    },
+                    "grad_cam_url": {
+                        "type": "string",
+                        "title": "Grad Cam Url"
+                    },
+                    "model_version": {
+                        "type": "string",
+                        "title": "Model Version"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "predicted_class",
+                    "produce_type",
+                    "quality",
+                    "confidence",
+                    "colour_pct",
+                    "size_pct",
+                    "ripeness_pct",
+                    "grade",
+                    "ensemble_weights",
+                    "recommended_action",
+                    "grad_cam_url",
+                    "model_version"
+                ],
+                "title": "GradeImageResponse"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "RecommendationItem": {
+                "properties": {
+                    "product_id": {
+                        "type": "integer",
+                        "title": "Product Id"
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "score": {
+                        "type": "number",
+                        "title": "Score"
+                    },
+                    "explanation": {
+                        "type": "string",
+                        "title": "Explanation"
+                    },
+                    "bucket": {
+                        "type": "string",
+                        "enum": [
+                            "reorder",
+                            "new_for_you"
+                        ],
+                        "title": "Bucket"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "product_id",
+                    "name",
+                    "score",
+                    "explanation",
+                    "bucket"
+                ],
+                "title": "RecommendationItem"
+            },
+            "RecommendationsResponse": {
+                "properties": {
+                    "user_id": {
+                        "type": "integer",
+                        "title": "User Id"
+                    },
+                    "reorder": {
+                        "items": {
+                            "$ref": "#/components/schemas/RecommendationItem"
+                        },
+                        "type": "array",
+                        "title": "Reorder"
+                    },
+                    "new_for_you": {
+                        "items": {
+                            "$ref": "#/components/schemas/RecommendationItem"
+                        },
+                        "type": "array",
+                        "title": "New For You"
+                    },
+                    "model_version": {
+                        "type": "string",
+                        "title": "Model Version"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "user_id",
+                    "reorder",
+                    "new_for_you",
+                    "model_version"
+                ],
+                "title": "RecommendationsResponse"
+            },
+            "ShapAttribution": {
+                "properties": {
+                    "top_days": {
+                        "items": {
+                            "$ref": "#/components/schemas/ShapDay"
+                        },
+                        "type": "array",
+                        "title": "Top Days"
+                    },
+                    "explanation": {
+                        "type": "string",
+                        "title": "Explanation"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "top_days",
+                    "explanation"
+                ],
+                "title": "ShapAttribution"
+            },
+            "ShapDay": {
+                "properties": {
+                    "day_index": {
+                        "type": "integer",
+                        "title": "Day Index"
+                    },
+                    "date": {
+                        "type": "string",
+                        "title": "Date"
+                    },
+                    "attribution": {
+                        "type": "number",
+                        "title": "Attribution"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "day_index",
+                    "date",
+                    "attribution"
+                ],
+                "title": "ShapDay"
+            },
+            "UploadModelResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "success",
+                            "error"
+                        ],
+                        "title": "Status"
+                    },
+                    "task": {
+                        "type": "string",
+                        "enum": [
+                            "task1a_knn",
+                            "task1b_lstm",
+                            "task2_resnet",
+                            "task2_mobilenet"
+                        ],
+                        "title": "Task"
+                    },
+                    "version": {
+                        "type": "string",
+                        "title": "Version"
+                    },
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status",
+                    "task",
+                    "version",
+                    "message"
+                ],
+                "title": "UploadModelResponse"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    },
+                    "input": {
+                        "title": "Input"
+                    },
+                    "ctx": {
+                        "type": "object",
+                        "title": "Context"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}

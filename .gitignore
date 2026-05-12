@@ -1,0 +1,45 @@
+venv/
+env/
+.venv/
+.env
+__pycache__/
+.vscode/
+.idea/
+build/
+dist/
+
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon
+
+# Ignore everything inside any raw/ folder
+data/**/raw/*
+
+data/**/raw/*
+!data/**/raw/
+!data/**/raw/.gitkeep
+!data/**
+data/**/__pycache__/
+data/**/.DS_Store
+
+# Re-ignore noise inside data/ after the negation above
+data/**/.DS_Store
+data/**/._*
+data/**/__pycache__/
+data/**/Icon
+
+.config
+models/versions/
+
